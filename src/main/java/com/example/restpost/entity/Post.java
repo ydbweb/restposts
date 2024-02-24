@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.persistence.Column;
@@ -30,6 +32,7 @@ public class Post {
     @JoinColumn(name="user_id")
     private User user;
     
+	@JsonIgnore
     @OneToMany
     @JoinColumn(name="post_id")
     private List<Comment> comments;    
